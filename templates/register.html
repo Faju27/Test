@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+{% csrf_token %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Register
+    <form method="POST" enctype="multipart/form-data" class="d-flex flex-column align-items-center ">
+        {% csrf_token %}
+
+        {{ form }}
+
+        <button type="submit" class="button button-register w-50 btn btn-outline-success ">Register</button>
+    </form>
+</body>
+</html>
