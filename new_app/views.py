@@ -13,9 +13,9 @@ def home(request):
 def register(request):
     form = BloggerForm()
     if request.method == 'POST':
-        form1 =BloggerForm(request.POST)
+        form1 = BloggerForm(request.POST, request.FILES)
         if form1.is_valid():
             form1.save()
-        return redirect('/')
+            return redirect('/')
 
     return render(request, 'register.html', {'form' : form})
