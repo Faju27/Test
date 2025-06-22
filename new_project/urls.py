@@ -24,6 +24,6 @@ urlpatterns = [
     path('', include('new_app.urls'))
 ]
 
-
+# no need this when using Cloudinary.
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

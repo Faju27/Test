@@ -7,7 +7,7 @@ class BloggerForm(forms.ModelForm):
 
     class Meta:
         model = Blogger
-        fields = ("name",  "phone")
+        fields = ("name",  "phone", 'image')
         labels = {
             'name': 'Enter Name',
             'phone': 'Enter Phone No',
