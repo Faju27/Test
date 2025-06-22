@@ -64,33 +64,33 @@
 
     <!-- Header Section Begin -->
     <header class="header">
-<!--        <div class="header__top">-->
-<!--            <div class="container">-->
-<!--                <div class="row">-->
-<!--                    <div class="col-lg-6 col-md-7">-->
-<!--                        <div class="header__top__left">-->
-<!--                            <p>Free shipping, 30-day return or refund guarantee.</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-lg-6 col-md-5">-->
-<!--                        <div class="header__top__right">-->
-<!--                            <div class="header__top__links">-->
-<!--                                <a href="#">Sign in</a>-->
-<!--                                <a href="#">FAQs</a>-->
-<!--                            </div>-->
-<!--                            <div class="header__top__hover">-->
-<!--                                <span>Usd <i class="arrow_carrot-down"></i></span>-->
-<!--                                <ul>-->
-<!--                                    <li>USD</li>-->
-<!--                                    <li>EUR</li>-->
-<!--                                    <li>USD</li>-->
-<!--                                </ul>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-7">
+                        <div class="header__top__left">
+                            <p>Free shipping, 30-day return or refund guarantee.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-5">
+                        <div class="header__top__right">
+                            <div class="header__top__links">
+                                <a href="#">Sign in</a>
+                                <a href="#">FAQs</a>
+                            </div>
+                            <div class="header__top__hover">
+                                <span>Usd <i class="arrow_carrot-down"></i></span>
+                                <ul>
+                                    <li>USD</li>
+                                    <li>EUR</li>
+                                    <li>USD</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-3">
@@ -101,7 +101,7 @@
                 <div class="col-lg-6 col-md-6">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li class="active"><a href=" {% static './index.html' %} ">Home</a></li>
+                            <li class="active"><a href=" / ">Home</a></li>
                             <li><a href=" {% static './shop.html' %} ">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
@@ -112,8 +112,9 @@
                                     <li><a href=" {% static './blog-details.html' %} ">Blog Details</a></li>
                                 </ul>
                             </li>
-                            <li><a href=" {% static './blog.html' %} ">Blog</a></li>
+<!--                            <li><a href=" {% static './blog.html' %} ">Blog</a></li>-->
                             <li><a href=" {% static './contact.html' %} ">Contacts</a></li>
+                            <li><a href=" {% url 'register' %} ">Register</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -132,62 +133,64 @@
     <!-- Header Section End -->
 
     <!-- Hero Section Begin -->
-    <section class="">
-        {% for data in blogger %}
-            <div class="bg-warning">
-                <p>Name : <span> {{ data.name }}</span></p>
-                <p>Phone : <span> {{ data.phone }}</span></p>
-                <img src="{{ data.image.url }}" height="100" width="100" >
-
+    <section class="hero">
+        <div class="hero__slider owl-carousel ">
+            <div class="hero__items set-bg" data-setbg="{% static 'img/hero/hero-1.jpg' %}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-5 col-lg-7 col-md-8">
+                            <div class="hero__text">
+                                <h6>Summer Collection</h6>
+                                <h2>Fall - Winter Collections 2030</h2>
+                                <p>A specialist label creating luxury essentials. Ethically crafted with an unwavering
+                                commitment to exceptional quality.</p>
+                                <a href="{% url 'register' %}" class="primary-btn">Register <span class="arrow_right"></span></a>
+                                <div class="hero__social">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        {% endfor %}
-<!--        <div class=" ">-->
-<!--            <div class=" set-bg" data-setbg="{% static 'img/hero/hero-1.jpg' %}">-->
-<!--                <div class="container">-->
-<!--                    <div class="row">-->
-<!--                        <div class="col-xl-5 col-lg-7 col-md-8">-->
-<!--                            <div class="">-->
-<!--                                <h6>Summer Collection</h6>-->
-<!--                                <h2>Fall - Winter Collections 2030</h2>-->
-<!--                                <p>A specialist label creating luxury essentials. Ethically crafted with an unwavering-->
-<!--                                commitment to exceptional quality.</p>-->
-<!--                                <a href="login" class="primary-btn">Login <span class="arrow_right"></span></a>-->
-<!--                                <div class="hero__social">-->
-<!--                                    <a href="#"><i class="fa fa-facebook"></i></a>-->
-<!--                                    <a href="#"><i class="fa fa-twitter"></i></a>-->
-<!--                                    <a href="#"><i class="fa fa-pinterest"></i></a>-->
-<!--                                    <a href="#"><i class="fa fa-instagram"></i></a>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="hero__items set-bg" data-setbg="{% static 'img/hero/hero-2.jpg' %}">-->
-<!--                <div class="container">-->
-<!--                    <div class="row">-->
-<!--                        <div class="col-xl-5 col-lg-7 col-md-8">-->
-<!--                            <div class="hero__text">-->
-<!--                                <h6>Summer Collection</h6>-->
-<!--                                <h2>Fall - Winter Collections 2030</h2>-->
-<!--                                <p>A specialist label creating luxury essentials. Ethically crafted with an unwavering-->
-<!--                                commitment to exceptional quality.</p>-->
-<!--                                <a href="register" class="primary-btn">Register <span class="arrow_right"></span></a>-->
-<!--                                <div class="hero__social">-->
-<!--                                    <a href="#"><i class="fa fa-facebook"></i></a>-->
-<!--                                    <a href="#"><i class="fa fa-twitter"></i></a>-->
-<!--                                    <a href="#"><i class="fa fa-pinterest"></i></a>-->
-<!--                                    <a href="#"><i class="fa fa-instagram"></i></a>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
+            <div class="hero__items set-bg" data-setbg="{% static 'img/hero/hero-2.jpg' %}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-5 col-lg-7 col-md-8">
+                            <div class="hero__text">
+                                <h6>Summer Collection</h6>
+                                <h2>Fall - Winter Collections 2030</h2>
+                                <p>A specialist label creating luxury essentials. Ethically crafted with an unwavering
+                                commitment to exceptional quality.</p>
+                                <a href="login" class="primary-btn">Login <span class="arrow_right"></span></a>
+                                <div class="hero__social">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     <!-- Hero Section End -->
-
+    <section>
+        <div class="d-flex flex-wrap container">
+            {% for data in blogger %}
+                <div class="bg-warning m-2">
+                    <p>Name : <span> {{ data.name }}</span></p>
+                    <p>Phone : <span> {{ data.phone }}</span></p>
+                    <img src="{{ data.image.url }}" height="100" width="100" >
+                </div>
+            {% endfor %}
+        </div>
+    </section>
     <!-- Footer Section Begin -->
     <footer class="footer">
         <div class="container">
@@ -267,16 +270,16 @@
     <!-- Search End -->
 
     <!-- Js Plugins -->
-<!--    <script src=" {% static 'js/jquery-3.3.1.min.js' %} "></script>-->
-<!--    <script src=" {% static 'js/bootstrap.min.js' %} "></script>-->
-<!--    <script src=" {% static 'js/jquery.nice-select.min.js' %} "></script>-->
-<!--    <script src=" {% static 'js/jquery.nicescroll.min.js' %} "></script>-->
-<!--    <script src=" {% static 'js/jquery.magnific-popup.min.js' %} "></script>-->
-<!--    <script src=" {% static 'js/jquery.countdown.min.js' %} "></script>-->
-<!--    <script src=" {% static 'js/jquery.slicknav.js' %} "></script>-->
-<!--    <script src=" {% static 'js/mixitup.min.js' %} "></script>-->
-<!--    <script src=" {% static 'js/owl.carousel.min.js' %} "></script>-->
-<!--    <script src=" {% static 'js/main.js' %} "></script>-->
+    <script src=" {% static 'js/jquery-3.3.1.min.js' %} "></script>
+    <script src=" {% static 'js/bootstrap.min.js' %} "></script>
+    <script src=" {% static 'js/jquery.nice-select.min.js' %} "></script>
+    <script src=" {% static 'js/jquery.nicescroll.min.js' %} "></script>
+    <script src=" {% static 'js/jquery.magnific-popup.min.js' %} "></script>
+    <script src=" {% static 'js/jquery.countdown.min.js' %} "></script>
+    <script src=" {% static 'js/jquery.slicknav.js' %} "></script>
+    <script src=" {% static 'js/mixitup.min.js' %} "></script>
+    <script src=" {% static 'js/owl.carousel.min.js' %} "></script>
+    <script src=" {% static 'js/main.js' %} "></script>
 </body>
 
 </html>
