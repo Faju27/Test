@@ -181,8 +181,14 @@
     </section>
     <!-- Hero Section End -->
     <section>
+        <form method="GET" class="mb-4 d-flex" style="max-width: 400px;">
+            <input type="text" name="q" value="{{ query }}" placeholder="Search..." class="form-control me-2" />
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+
         <div class="d-flex flex-wrap container">
-            {% for data in blogger %}
+            {% for data in page_obj %}
                 <div class="bg-warning m-2">
                     <p>Name : <span> {{ data.name }}</span></p>
                     <p>Phone : <span> {{ data.phone }}</span></p>
@@ -190,6 +196,54 @@
                 </div>
             {% endfor %}
         </div>
+
+        <div class="pagination">
+            <span>
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; First</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                {% endif %}
+
+                <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">Next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center">
+              <li class="page-item {% if not page_obj.has_previous %} disabled {% endif %}">
+                  {% if page_obj.has_previous %}
+<!--                      <a class="page-link" href="?page=1">&laquo; First</a>-->
+                      <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                  {% else %}
+                      <span class="page-link">Previous</span>
+<!--                      <span class="page-link">&laquo; First</span>-->
+
+                  {% endif %}
+              </li>
+
+            {% for num in page_obj.paginator.page_range %}
+              <li class="page-item {% if page_obj.number == num %}active{% endif %}">
+                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+              </li>
+            {% endfor %}
+
+              <li class="page-item {% if not page_obj.has_next %} disabled {% endif %}">
+                  {% if page_obj.has_next %}
+                      <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+<!--                      <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>-->
+
+                  {% else %}
+                      <span class="page-link">Next</span>
+<!--                      <span class="page-link">Last &raquo;</span>-->
+                  {% endif %}
+              </li>
+
+          </ul>
+        </nav>
     </section>
     <!-- Footer Section Begin -->
     <footer class="footer">
